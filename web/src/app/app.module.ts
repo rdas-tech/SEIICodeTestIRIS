@@ -7,20 +7,31 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SubdivisionDataDisplayComponent } from './subdivision-data-display/subdivision-data-display.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { subDivisionsReducer } from './subdivision-data-display/store/subdivision-data-display.reducer';
+import { SubDivisionsEffects } from './subdivision-data-display/store/subdivision-data-display.effects';
+import { HttpClientModule } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SubdivisionDataDisplayComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		SubdivisionDataDisplayComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		MatToolbarModule,
+		AgGridModule,
+		HttpClientModule,
+		StoreModule.forRoot({ subDivisionsStore: subDivisionsReducer }),
+		EffectsModule.forRoot([SubDivisionsEffects]),
+
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

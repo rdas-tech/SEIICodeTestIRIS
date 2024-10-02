@@ -1,1 +1,5 @@
-<p>Display the subdivision data here!</p>
+<div class="sub-division-container">
+	<ag-grid-angular [rowData]="rowData$ | async" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+		[pagination]="true" [paginationPageSize]="paginationPageSize" class="ag-theme-alpine">
+	</ag-grid-angular>
+</div>

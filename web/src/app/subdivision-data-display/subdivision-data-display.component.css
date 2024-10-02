@@ -1,0 +1,11 @@
+.sub-division-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.sub-division-container>ag-grid-angular {
+	width: 75%;
+	height: 75%;
+}
